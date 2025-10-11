@@ -1,23 +1,64 @@
-logs
+# Logs
 *.log
+*.tmp
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Node modules
+node_modules/
 
-.vscode/*
+# Build output
+dist/
+build/
+out/
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# IDE/editor settings
+.vscode/
 !.vscode/extensions.json
-.idea
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# System files
 .DS_Store
+Thumbs.db
+AppleDouble
+.LSOverride
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Misc
+*.sw?
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
-.env
+
+# Optional: Vite
+.vite/
+
+# Optional: Next.js
+.next/
+.vercel/
+
+# Optional: Expo / React Native
+.expo/
+.expo-shared/
+android/
+ios/
