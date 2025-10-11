@@ -1,4 +1,4 @@
-import { Award, Mail, Phone, Calendar, Edit } from 'lucide-react';
+import { Award, Mail, Phone, Edit } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Profile() {
