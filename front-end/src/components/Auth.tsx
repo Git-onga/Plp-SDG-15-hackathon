@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { Leaf } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
+import { useState } from "react";
+import { Leaf } from "lucide-react";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [fullName, setFullName] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { signIn, signUp } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
     try {
@@ -22,8 +22,12 @@ export default function Auth() {
       } else {
         await signUp(email, password, fullName);
       }
-    } catch (err: any) {
-      setError(err.message || 'An error occurred');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unknown error occurred");
+      }
     } finally {
       setLoading(false);
     }
@@ -38,7 +42,9 @@ export default function Auth() {
           </div>
         </div>
 
-        <h1 className="text-3xl font-bold text-center text-slate-900 mb-2">EcoEngage</h1>
+        <h1 className="text-3xl font-bold text-center text-slate-900 mb-2">
+          EcoEngage
+        </h1>
         <p className="text-center text-slate-600 mb-8">
           Protect the Land, One Action at a Time.
         </p>
@@ -52,7 +58,10 @@ export default function Auth() {
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
             <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-slate-700 mb-1">
+              <label
+                htmlFor="fullName"
+                className="block text-sm font-medium text-slate-700 mb-1"
+              >
                 Full Name
               </label>
               <input
@@ -68,7 +77,10 @@ export default function Auth() {
           )}
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-slate-700 mb-1"
+            >
               Email
             </label>
             <input
@@ -83,7 +95,10 @@ export default function Auth() {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-1">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-slate-700 mb-1"
+            >
               Password
             </label>
             <input
@@ -102,7 +117,7 @@ export default function Auth() {
             disabled={loading}
             className="w-full bg-slate-900 text-white py-3 rounded-lg font-medium hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Please wait...' : isLogin ? 'Sign In' : 'Sign Up'}
+            {loading ? "Please wait..." : isLogin ? "Sign In" : "Sign Up"}
           </button>
         </form>
 
@@ -111,7 +126,9 @@ export default function Auth() {
             onClick={() => setIsLogin(!isLogin)}
             className="text-emerald-600 hover:text-emerald-700 text-sm font-medium"
           >
-            {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
+            {isLogin
+              ? "Don't have an account? Sign up"
+              : "Already have an account? Sign in"}
           </button>
         </div>
       </div>
