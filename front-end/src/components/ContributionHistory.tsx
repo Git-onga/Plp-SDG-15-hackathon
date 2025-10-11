@@ -162,7 +162,7 @@ export default function ContributionHistory() {
           {/* Timeline line */}
           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-200"></div>
 
-          {displayContributions.map((contribution, index) => {
+          {displayContributions.map((contribution) => {
             const Icon = getIcon(contribution.type);
             return (
               <div key={contribution.id} className="relative flex gap-6">
