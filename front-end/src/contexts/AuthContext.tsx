@@ -65,14 +65,35 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       })();
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
       (async () => {
-        setUser(session?.user ?? null);
-        if (session?.user) {
-          const profileData = await fetchProfile(session.user.id);
-          setProfile(profileData);
-        } else {
-          setProfile(null);
+        const currentUser = session?.user ?? null;
+        setUser(currentUser);
+
+        if (currentUser) {
+          // this will fetch profile
+          const profileData = await fetchProfile(currentUser.id);
+          // setProfile(profileData);
+
+          // this is if profile doesn't exist, create it (first login)
+          if (!profileData) {
+            // this will get the full_name from metadata  (if sent during signup)
+            const fullName = currentUser.user_metadata.full_name ?? "unknown";
+            const phone = currentUser.user_metadata.phone ?? null;
+
+            await supabase.from("profiles").insert({
+              id: currentUser.id,
+              full_name: fullName,
+              phone: phone,
+              email: currentUser.email,
+            });
+
+            setProfile(await fetchProfile(currentUser.id));
+          } else {
+            setProfile(profileData);
+          }
         }
       })();
     });
