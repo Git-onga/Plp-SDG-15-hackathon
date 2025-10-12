@@ -95,6 +95,26 @@ export default function Auth() {
             />
           </div>
 
+          {!isLogin && (
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-slate-700 mb-1"
+              >
+                Phone Number
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+                className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                placeholder="07"
+              />
+            </div>
+          )}
+
           <div>
             <label
               htmlFor="password"
