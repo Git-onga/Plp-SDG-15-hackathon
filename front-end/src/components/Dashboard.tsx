@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [currentView, setCurrentView] = useState<View>("dashboard");
   const { profile, signOut } = useAuth();
 
-    if (!profile) {
+/*   if (!profile) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
@@ -22,7 +22,8 @@ export default function Dashboard() {
         </div>
       </div>
     );
-  }
+  } */
+
 
   // console.log("Profile data:", profile);
 
