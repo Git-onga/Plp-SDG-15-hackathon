@@ -59,7 +59,8 @@ CREATE TABLE IF NOT EXISTS profiles (
   badge_volunteer integer DEFAULT 0,
   badge_funding integer DEFAULT 0,
   created_at timestamptz DEFAULT now(),
-  updated_at timestamptz DEFAULT now()
+  updated_at timestamptz DEFAULT now(),
+  phone text
 );
 
 ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
