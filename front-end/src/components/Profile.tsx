@@ -114,7 +114,9 @@ export default function Profile() {
                 </div>
               </div>
               <h3 className="font-bold text-slate-900 mb-1">{badge.name}</h3>
-              <p className="text-2xl font-bold text-emerald-600 mb-2">{badge.count}</p>
+              <p className="text-2xl font-bold text-emerald-600 mb-2">
+                {badge.count}
+              </p>
               <p className="text-sm text-slate-600">{badge.description}</p>
             </div>
           ))}
@@ -123,7 +125,9 @@ export default function Profile() {
 
       {/* Eco Achievements */}
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
-        <h2 className="text-2xl font-bold text-slate-900 mb-6">Eco Achievements</h2>
+        <h2 className="text-2xl font-bold text-slate-900 mb-6">
+          Eco Achievements
+        </h2>
 
         <div className="space-y-6">
           <div className="flex gap-4">
@@ -135,11 +139,18 @@ export default function Profile() {
                 <h3 className="font-semibold text-slate-900">Tree Planter</h3>
                 <span className="text-sm text-slate-500">Level 5</span>
               </div>
-              <p className="text-sm text-slate-600 mb-2">Planted 47 trees in conservation areas</p>
+              <p className="text-sm text-slate-600 mb-2">
+                Planted 47 trees in conservation areas
+              </p>
               <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                <div className="h-full bg-green-500 rounded-full" style={{ width: '94%' }}></div>
+                <div
+                  className="h-full bg-green-500 rounded-full"
+                  style={{ width: "94%" }}
+                ></div>
               </div>
-              <p className="text-xs text-slate-500 mt-1">3 more trees to reach Level 6</p>
+              <p className="text-xs text-slate-500 mt-1">
+                3 more trees to reach Level 6
+              </p>
             </div>
           </div>
 
@@ -152,11 +163,18 @@ export default function Profile() {
                 <h3 className="font-semibold text-slate-900">Beach Guardian</h3>
                 <span className="text-sm text-slate-500">Level 3</span>
               </div>
-              <p className="text-sm text-slate-600 mb-2">Cleaned 1.2km of coastline</p>
+              <p className="text-sm text-slate-600 mb-2">
+                Cleaned 1.2km of coastline
+              </p>
               <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                <div className="h-full bg-blue-500 rounded-full" style={{ width: '60%' }}></div>
+                <div
+                  className="h-full bg-blue-500 rounded-full"
+                  style={{ width: "60%" }}
+                ></div>
               </div>
-              <p className="text-xs text-slate-500 mt-1">800m more to reach Level 4</p>
+              <p className="text-xs text-slate-500 mt-1">
+                800m more to reach Level 4
+              </p>
             </div>
           </div>
 
@@ -169,11 +187,18 @@ export default function Profile() {
                 <h3 className="font-semibold text-slate-900">Water Saver</h3>
                 <span className="text-sm text-slate-500">Level 4</span>
               </div>
-              <p className="text-sm text-slate-600 mb-2">Conserved 3,370 liters of water</p>
+              <p className="text-sm text-slate-600 mb-2">
+                Conserved 3,370 liters of water
+              </p>
               <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                <div className="h-full bg-amber-500 rounded-full" style={{ width: '67%' }}></div>
+                <div
+                  className="h-full bg-amber-500 rounded-full"
+                  style={{ width: "67%" }}
+                ></div>
               </div>
-              <p className="text-xs text-slate-500 mt-1">1,630L more to reach Level 5</p>
+              <p className="text-xs text-slate-500 mt-1">
+                1,630L more to reach Level 5
+              </p>
             </div>
           </div>
         </div>
