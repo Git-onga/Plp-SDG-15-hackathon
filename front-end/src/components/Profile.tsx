@@ -1,7 +1,6 @@
 import { Award, Mail, Phone, Edit } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 
-
 export default function Profile() {
   const { profile } = useAuth();
 
@@ -83,10 +82,8 @@ export default function Profile() {
             <p className="text-sm text-slate-600 mb-2">{stat.label}</p>
             <p className="text-3xl font-bold text-slate-900">
               {stat.value.toLocaleString()}
-            </p>
-          >
-            <p className="text-sm text-slate-600 mb-2">{stat.label}</p>
-            <p className="text-3xl font-bold text-slate-900">{stat.value.toLocaleString()}</p>
+          </p>
+          
           </div>
         ))}
       </div>
