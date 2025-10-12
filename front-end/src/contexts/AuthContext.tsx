@@ -56,6 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     supabase.auth.getSession().then(({ data: { session } }) => {
       (async () => {
         setUser(session?.user ?? null);
+        // console.log("session user id: ", session?.user?.action_link);
         if (session?.user) {
           const profileData = await fetchProfile(session.user.id);
           setProfile(profileData);
@@ -88,7 +89,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (error) throw error;
   };
 
-  const signUp = async (email: string, password: string, fullName: string) => {
+  const signUp = async (
+    email: string,
+    password: string,
+    fullName: string,
+    phone: string
+  ) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -118,7 +124,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, signIn, signUp, signOut, refreshProfile }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        profile,
+        loading,
+        signIn,
+        signUp,
+        signOut,
+        refreshProfile,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
@@ -127,7 +143,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 }
