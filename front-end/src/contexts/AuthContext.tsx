@@ -125,21 +125,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     if (error) throw error;
-    if (!data.user) throw new Error('Failed to create user');
 
-    const { error: profileError } = await supabase
-      .from('profiles')
-      .insert({
-        id: data.user.id,
-        full_name: fullName,
-        email: email,
-        eco_points: 1350,
-        badge_survival: 10,
-        badge_volunteer: 5,
-        badge_funding: 3,
-      });
-
-    if (profileError) throw profileError;
+    console.log("Signup initiated:", data);
   };
 
   const signOut = async () => {
