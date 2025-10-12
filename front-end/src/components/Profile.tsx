@@ -1,35 +1,36 @@
-import { Award, Mail, Phone, Edit } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
+import { Award, Mail, Phone, Edit } from "lucide-react";
+import { useAuth } from "../contexts/AuthContext";
+
 
 export default function Profile() {
   const { profile } = useAuth();
 
   const badges = [
     {
-      name: 'Survival Expert',
+      name: "Survival Expert",
       count: profile?.badge_survival || 0,
-      color: 'from-emerald-500 to-teal-500',
-      description: 'Wildlife conservation and habitat protection',
+      color: "from-emerald-500 to-teal-500",
+      description: "Wildlife conservation and habitat protection",
     },
     {
-      name: 'Volunteer Hero',
+      name: "Volunteer Hero",
       count: profile?.badge_volunteer || 0,
-      color: 'from-blue-500 to-cyan-500',
-      description: 'Community service and volunteer work',
+      color: "from-blue-500 to-cyan-500",
+      description: "Community service and volunteer work",
     },
     {
-      name: 'Funding Champion',
+      name: "Funding Champion",
       count: profile?.badge_funding || 0,
-      color: 'from-amber-500 to-orange-500',
-      description: 'Environmental funding and donations',
+      color: "from-amber-500 to-orange-500",
+      description: "Environmental funding and donations",
     },
   ];
 
   const stats = [
-    { label: 'Total Points', value: profile?.eco_points || 0 },
-    { label: 'Actions Taken', value: '23' },
-    { label: 'Trees Planted', value: '47' },
-    { label: 'CO2 Offset', value: '3,370 kg' },
+    { label: "Total Points", value: profile?.eco_points || 0 },
+    { label: "Actions Taken", value: "23" },
+    { label: "Trees Planted", value: "47" },
+    { label: "CO2 Offset", value: "3,370 kg" },
   ];
 
   return (
@@ -42,11 +43,13 @@ export default function Profile() {
             <div className="flex items-end gap-6">
               <div className="w-32 h-32 bg-white rounded-2xl shadow-lg border-4 border-white flex items-center justify-center">
                 <span className="text-5xl font-bold text-emerald-600">
-                  {profile?.full_name?.charAt(0) || 'A'}
+                  {profile?.full_name?.charAt(0) || "A"}
                 </span>
               </div>
               <div className="pb-2">
-                <h1 className="text-2xl font-bold text-slate-900 mb-1">{profile?.full_name || 'Alex Green'}</h1>
+                <h1 className="text-2xl font-bold text-slate-900 mb-1">
+                  {profile?.full_name || "Alex Green"}
+                </h1>
                 <p className="text-slate-600">Environmental Advocate</p>
               </div>
             </div>
@@ -59,11 +62,12 @@ export default function Profile() {
           <div className="grid sm:grid-cols-2 gap-4 mt-6">
             <div className="flex items-center gap-3 text-slate-600">
               <Mail className="w-5 h-5" />
-              <span>{profile?.email || 'alex@example.com'}</span>
+              <span>{profile?.email || "alex@example.com"}</span>
             </div>
             <div className="flex items-center gap-3 text-slate-600">
               <Phone className="w-5 h-5" />
-              <span>+1 (555) 420-6969</span>
+              {/* <span>+1 (555) 420-6969</span> */}
+              <span>{profile?.phone || "+1 (555) 420-6969"}</span>
             </div>
           </div>
         </div>
@@ -72,7 +76,15 @@ export default function Profile() {
       {/* Stats Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+          <div
+            key={index}
+            className="bg-white rounded-xl shadow-sm border border-slate-200 p-6"
+          >
+            <p className="text-sm text-slate-600 mb-2">{stat.label}</p>
+            <p className="text-3xl font-bold text-slate-900">
+              {stat.value.toLocaleString()}
+            </p>
+          >
             <p className="text-sm text-slate-600 mb-2">{stat.label}</p>
             <p className="text-3xl font-bold text-slate-900">{stat.value.toLocaleString()}</p>
           </div>
@@ -84,14 +96,19 @@ export default function Profile() {
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-slate-900">Your Badges</h2>
           <span className="text-sm text-slate-600">
-            {(profile?.badge_survival || 0) + (profile?.badge_volunteer || 0) + (profile?.badge_funding || 0)} total
+            {(profile?.badge_survival || 0) +
+              (profile?.badge_volunteer || 0) +
+              (profile?.badge_funding || 0)}{" "}
+            total
           </span>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {badges.map((badge, index) => (
             <div key={index} className="text-center">
-              <div className={`w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br ${badge.color} flex items-center justify-center shadow-lg`}>
+              <div
+                className={`w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br ${badge.color} flex items-center justify-center shadow-lg`}
+              >
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
                   <Award className="w-10 h-10 text-slate-700" />
                 </div>
