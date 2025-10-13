@@ -13,8 +13,8 @@ export type Profile = {
   id: string;
   full_name: string;
   email: string;
-  phone: string;
-  avatar_url: string | null;
+  phone?: string;
+  avatar_url?: string | null;
   eco_points: number;
   badge_survival: number;
   badge_volunteer: number;
