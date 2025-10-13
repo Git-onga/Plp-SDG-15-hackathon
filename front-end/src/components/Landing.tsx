@@ -278,9 +278,7 @@ export default function Landing() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   className="group bg-accent-yellow hover:bg-yellow-600 text-forest-green font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-                  onClick={() => {
-                    window.location.href = "/login";
-                  }}
+                  onClick={() => navigate("/login")}
                 >
                   <Leaf className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                   Get Involved
