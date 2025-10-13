@@ -69,73 +69,90 @@ export default function Dashboard() {
 
       {/* Navigation */}
       <nav className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-1">
-            <button
-              onClick={() => setCurrentView("dashboard")}
-              className={`px-6 py-3 font-medium transition-colors border-b-2 ${
-                currentView === "dashboard"
+        <div className="max-w-7xl mx-auto px-4 flex gap-1">
+          <NavLink
+            to="."
+            className={({ isActive }: { isActive: boolean }) =>
+              `px-6 py-3 font-medium border-b-2 ${
+                isActive
                   ? "border-emerald-600 text-emerald-600"
                   : "border-transparent text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              Dashboard
-            </button>
-            <button
-              onClick={() => setCurrentView("progress")}
-              className={`px-6 py-3 font-medium transition-colors border-b-2 flex items-center gap-2 ${
-                currentView === "progress"
+              }`
+            }
+          >
+            HomePage
+          </NavLink>
+
+          <NavLink
+            to="dashboard"
+            className={({ isActive }: { isActive: boolean }) =>
+              `px-6 py-3 font-medium border-b-2 ${
+                isActive
                   ? "border-emerald-600 text-emerald-600"
                   : "border-transparent text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              <TrendingUp className="w-4 h-4" />
-              Your Progress
-            </button>
-            <button
-              onClick={() => setCurrentView("parks")}
-              className={`px-6 py-3 font-medium transition-colors border-b-2 flex items-center gap-2 ${
-                currentView === "parks"
+              }`
+            }
+          >
+            Dashboard
+          </NavLink>
+          <NavLink
+            to="progress"
+            className={({ isActive }: { isActive: boolean }) =>
+              `px-6 py-3 font-medium border-b-2 flex items-center gap-2 ${
+                isActive
                   ? "border-emerald-600 text-emerald-600"
                   : "border-transparent text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              <Map className="w-4 h-4" />
-              Explore Parks
-            </button>
-            <button
-              onClick={() => setCurrentView("profile")}
-              className={`px-6 py-3 font-medium transition-colors border-b-2 flex items-center gap-2 ${
-                currentView === "profile"
+              }`
+            }
+          >
+            <TrendingUp className="w-4 h-4" />
+            Progress
+          </NavLink>
+          <NavLink
+            to="parks"
+            className={({ isActive }: { isActive: boolean }) =>
+              `px-6 py-3 font-medium border-b-2 flex items-center gap-2 ${
+                isActive
                   ? "border-emerald-600 text-emerald-600"
                   : "border-transparent text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              <User className="w-4 h-4" />
-              Profile
-            </button>
-            <button
-              onClick={() => setCurrentView("history")}
-              className={`px-6 py-3 font-medium transition-colors border-b-2 flex items-center gap-2 ${
-                currentView === "history"
+              }`
+            }
+          >
+            <Map className="w-4 h-4" />
+            Parks
+          </NavLink>
+          <NavLink
+            to="profile"
+            className={({ isActive }: { isActive: boolean }) =>
+              `px-6 py-3 font-medium border-b-2 flex items-center gap-2 ${
+                isActive
                   ? "border-emerald-600 text-emerald-600"
                   : "border-transparent text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              <History className="w-4 h-4" />
-              History
-            </button>
-          </div>
+              }`
+            }
+          >
+            <User className="w-4 h-4" />
+            Profile
+          </NavLink>
+          <NavLink
+            to="history"
+            className={({ isActive }: { isActive: boolean }) =>
+              `px-6 py-3 font-medium border-b-2 flex items-center gap-2 ${
+                isActive
+                  ? "border-emerald-600 text-emerald-600"
+                  : "border-transparent text-slate-600 hover:text-slate-900"
+              }`
+            }
+          >
+            <History className="w-4 h-4" />
+            History
+          </NavLink>
         </div>
       </nav>
 
-      {/* Main Content */}
-      <main>
-        {currentView === "dashboard" && <ActivityFeed />}
-        {currentView === "progress" && <Progress />}
-        {currentView === "parks" && <ParksExplorer />}
-        {currentView === "profile" && <Profile />}
-        {currentView === "history" && <ContributionHistory />}
+      {/* Routed content */}
+      <main className="max-w-7xl mx-auto px-4 py-6">
+        <Outlet />
       </main>
     </div>
   );
