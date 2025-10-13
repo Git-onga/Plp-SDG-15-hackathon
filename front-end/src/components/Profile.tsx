@@ -109,8 +109,7 @@ export default function Profile() {
             <p className="text-sm text-slate-600 mb-2">{stat.label}</p>
             <p className="text-3xl font-bold text-slate-900">
               {stat.value.toLocaleString()}
-          </p>
-          
+            </p>
           </div>
         ))}
       </div>
@@ -164,7 +163,8 @@ export default function Profile() {
                 <span className="text-sm text-slate-500">Level 5</span>
               </div>
               <p className="text-sm text-slate-600 mb-2">
-                Planted 47 trees in conservation areas
+                Planted {treesPlanted ? treesPlanted.toString() : "0"} trees in
+                conservation areas
               </p>
               <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
                 <div
