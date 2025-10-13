@@ -172,6 +172,7 @@ export default function Profile() {
                   style={{ width: "94%" }}
                 ></div>
               </div>
+
               <p className="text-xs text-slate-500 mt-1">
                 3 more trees to reach Level 6
               </p>
