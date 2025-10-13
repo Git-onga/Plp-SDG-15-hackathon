@@ -42,32 +42,27 @@ export default function Dashboard() {
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
       <header className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="bg-emerald-600 p-2 rounded-lg">
-                <Leaf className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-slate-900">
-                EcoEngage
-              </span>
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="bg-emerald-600 p-2 rounded-lg">
+              <Leaf className="w-6 h-6 text-white" />
             </div>
-
-            <div className="flex items-center gap-4">
-              <div className="text-right">
-                <p className="text-sm text-slate-600">Welcome back</p>
-                <p className="font-semibold text-slate-900">
-                  {profile?.full_name}
-                </p>
-              </div>
-              <button
-                onClick={handleSignOut}
-                className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
-                title="Sign out"
-              >
-                <LogOut className="w-5 h-5 text-slate-600" />
-              </button>
+            <span className="text-xl font-bold text-slate-900">EcoEngge</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="text-right">
+              <p className="text-sm text-slate-600">Welcome back</p>
+              <p className="font-semibold text-slate-900">
+                {profile.full_name}
+              </p>
             </div>
+            <button
+              onClick={handleSignOut}
+              className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+              title="Sign out"
+            >
+              <LogOut className="w-5 h-5 text-slate-600" />
+            </button>
           </div>
         </div>
       </header>
