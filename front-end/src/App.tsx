@@ -5,9 +5,16 @@ import {
   Navigate,
 } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
-import Auth from "./components/Auth";
-import Dashboard from "./components/Dashboard";
 
+import Auth from "./components/Auth";
+import DashboardLayout from "./components/DashboardLayout"; // New
+import Progress from "./components/Progress";
+import Profile from "./components/Profile";
+import Landing from "./components/Landing";
+import ActivityFeed from "./components/ActivityFeed";
+import ParksExplorer from "./components/ParksExplorer";
+import ContributionHistory from "./components/ContributionHistory";
+import LogActivity from "./components/LogActivity";
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
 
@@ -30,16 +37,28 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
+          {/* Landing Page */}
+          <Route path="/" element={<Landing />} />
+
+          {/* Auth Page */}
+          <Route path="/login" element={<Auth />} />
+
+          {/* Protected Routes with layout */}
           <Route
             path="/dashboard"
             element={
               <ProtectedRoute>
-                <Dashboard />
+                <DashboardLayout />
               </ProtectedRoute>
             }
-          />
-          <Route path="/login" element={<Auth />} />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
+          >
+            <Route index element={<ActivityFeed />} />
+            <Route path="progress" element={<Progress />} />
+            <Route path="parks" element={<ParksExplorer />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="log-activity" element={<LogActivity />} />
+            <Route path="history" element={<ContributionHistory />} />
+          </Route>
         </Routes>
       </Router>
     </AuthProvider>
