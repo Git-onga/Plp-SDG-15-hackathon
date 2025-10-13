@@ -10,7 +10,7 @@ Users can log conservation activities, earn eco-points, share their impact, and 
 🌐 **[Visit EcoEngage](https://eco-engage-plp.vercel.app/)**
 
 ## Pitchdeck 
-📊 **[Visit Gamma Pitchdeck for EcoEngage]([https://eco-engage-plp.vercel.app/](https://gamma.app/docs/EcoEngage-wry473qlor85qgp))**
+📊 **[Visit Gamma Pitchdeck for EcoEngage](https://gamma.app/docs/EcoEngage-wry473qlor85qgp)**
 
 ## 🚀 Features
 
