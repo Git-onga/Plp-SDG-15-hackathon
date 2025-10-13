@@ -220,7 +220,10 @@ export default function ActivityFeed() {
             <p className="text-emerald-50 text-sm mb-4">
               Log your conservation activities and earn eco points!
             </p>
-            <button className="w-full bg-white text-emerald-600 font-medium py-2.5 rounded-lg hover:bg-emerald-50 transition-colors">
+            <button
+              onClick={() => navigate("/dashboard/log-activity")}
+              className="w-full bg-white text-emerald-600 font-medium py-2.5 rounded-lg hover:bg-emerald-50 transition-colors"
+            >
               Log Activity
             </button>
           </div>
