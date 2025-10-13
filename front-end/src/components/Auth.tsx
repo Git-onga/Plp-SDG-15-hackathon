@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Leaf } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -11,6 +12,8 @@ export default function Auth() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { signIn, signUp } = useAuth();
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,8 +23,10 @@ export default function Auth() {
     try {
       if (isLogin) {
         await signIn(email, password);
+        navigate("/dashboard");
       } else {
         await signUp(email, password, fullName, phone);
+        navigate("/dashboard");
       }
     } catch (err: unknown) {
       if (err instanceof Error) {
