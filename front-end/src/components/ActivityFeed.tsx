@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Award, MapPin, ThumbsUp, MessageCircle, Share2 } from "lucide-react";
 import { supabase, Activity } from "../lib/supabase";
@@ -7,6 +8,7 @@ export default function ActivityFeed() {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
   const { profile } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchActivities();
