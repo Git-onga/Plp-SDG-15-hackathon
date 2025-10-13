@@ -1,17 +1,12 @@
-import { useState } from "react";
-import { Leaf, LogOut, User, Map, TrendingUp, History } from "lucide-react";
+// Dashboard.tsx
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
+import { LogOut, Leaf, User, Map, TrendingUp, History } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
-import ActivityFeed from "./ActivityFeed";
-import Progress from "./Progress";
-import ParksExplorer from "./ParksExplorer";
-import Profile from "./Profile";
-import ContributionHistory from "./ContributionHistory";
-
-type View = "dashboard" | "progress" | "parks" | "profile" | "history";
 
 export default function Dashboard() {
-  const [currentView, setCurrentView] = useState<View>("dashboard");
   const { profile, signOut } = useAuth();
+
+  const navigate = useNavigate();
 
   if (!profile) {
     return (
@@ -23,8 +18,6 @@ export default function Dashboard() {
       </div>
     );
   }
-
-  // console.log("Profile data:", profile);
 
   const handleSignOut = async () => {
     try {
