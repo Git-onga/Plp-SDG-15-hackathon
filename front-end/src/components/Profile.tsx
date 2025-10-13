@@ -1,8 +1,32 @@
 import { Award, Mail, Phone, Edit } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
 
 export default function Profile() {
   const { profile } = useAuth();
+
+  const [treesPlanted, setTreesPlanted] = useState(0);
+
+  useEffect(() => {
+    if (!profile) return;
+
+    const fetchTreesPlanted = async () => {
+      const { count, error } = await supabase
+        .from("activities")
+        .select("*", { count: "exact", head: true }) // fetch only the count
+        .eq("user_id", profile.id)
+        .eq("category", "planting");
+
+      if (error) {
+        console.error("Error fetching tree planting count:", error.message);
+      } else {
+        setTreesPlanted(count || 0);
+      }
+    };
+
+    fetchTreesPlanted();
+  }, [profile]);
 
   const badges = [
     {
@@ -28,7 +52,10 @@ export default function Profile() {
   const stats = [
     { label: "Total Points", value: profile?.eco_points || 0 },
     { label: "Actions Taken", value: "23" },
-    { label: "Trees Planted", value: "47" },
+    {
+      label: "Trees Planted",
+      value: treesPlanted ? treesPlanted.toString() : "0",
+    },
     { label: "CO2 Offset", value: "3,370 kg" },
   ];
 
