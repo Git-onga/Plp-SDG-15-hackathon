@@ -1,16 +1,16 @@
-# 🌿 EcoEngage — SDG 15 Community Engagement Platform
+# 🌿 EcoPlay — SDG 15 Community Engagement Platform
 
-EcoEngage is a sustainability-driven web application designed to promote **environmental awareness, collaboration, and community action** in line with **UN SDG 15 (Life on Land)**.  
+EcoPlay is a sustainability-driven web application designed to promote **environmental awareness, collaboration, and community action** in line with **UN SDG 15 (Life on Land)**.  
 Users can log conservation activities, earn eco-points, share their impact, and connect with others making a difference.
 
 ---
 
 
 ## 🔗 Live Web App
-🌐 **[Visit EcoEngage](https://eco-engage-plp.vercel.app/)**
+🌐 **[Visit EcoPlay](https://eco-engage-plp.vercel.app/)**
 
 ## Pitchdeck 
-📊 **[Visit Gamma Pitchdeck for EcoEngage](https://gamma.app/docs/EcoEngage-wry473qlor85qgp)**
+📊 **[Visit Gamma Pitchdeck for EcoPlay](https://gamma.app/docs/EcoEngage-wry473qlor85qgp)**
 
 ## 🚀 Features
 
